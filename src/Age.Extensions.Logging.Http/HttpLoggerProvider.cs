@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Age.Extensions.Logging.Http
 {
+    [ProviderAlias("Http")]
     public class HttpLoggerProvider : ILoggerProvider, ISupportExternalScope
     {
         private readonly HttpOptions options;
