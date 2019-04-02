@@ -31,9 +31,9 @@ Add the following configuration section to your **appsettings.json**:
 			"LogFromScopeMapings": true, // if true log only properties from "ScopeMappings" if are present in logs
 			"ScopeMappings": {
 				"Test": "test"
-      	}
-    },
-    "HttpWithBasicAuth": {
+			}
+		},
+		"HttpWithBasicAuth": {
 			"Url": "urlToLogService",
 			"Username": "",
 			"Password": "",
@@ -41,7 +41,7 @@ Add the following configuration section to your **appsettings.json**:
 			"ScopeMappings": {
 				"Test": "test"
 			}
-    	}
+		}
 	...
 }
 ```
