@@ -8,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-
 namespace Test
 {
     public class Startup
@@ -40,17 +39,15 @@ namespace Test
                    .AddHttp(() =>
                    {
                        var authwithCertOptions = new HttpOptions { ErrorLogger = mlogErrorLogger };
-                       Configuration.Bind("Logging:HttpWithCertificate", authwithCertOptions);
+                       Configuration.Bind("Logging:HttpMLogConfig", authwithCertOptions);
                        return authwithCertOptions;
                    })
                    .AddHttp(() =>
-
                    {
                        var authwithAuthHeaderOptions = new HttpOptions { ErrorLogger = mlogErrorLogger };
-                       Configuration.Bind("Logging:HttpWithBasicAuth", authwithAuthHeaderOptions);
+                       Configuration.Bind("Logging:HttpMopsConfig", authwithAuthHeaderOptions);
                        return authwithAuthHeaderOptions;
                    }));
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -80,13 +80,13 @@ namespace Age.Extensions.Logging.Http
         {
             using (var response = await client.PostAsync(registerUrl, new StringContent(content, Encoding.UTF8, "application/json")))
             {
-                response.EnsureSuccessStatusCode();
-                using (var result = response.Content)
+                var contentAsString = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
                 {
-                    return await result.ReadAsStringAsync();
+                    throw new HttpRequestException(contentAsString);
                 }
+                return contentAsString;
             }
         }
     }
-
 }

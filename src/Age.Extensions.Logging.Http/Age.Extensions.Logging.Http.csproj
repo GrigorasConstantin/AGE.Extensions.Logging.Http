@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/GrigorasConstantin/AGE.Extensions.Logging.Http</RepositoryUrl>
     <PackageReleaseNotes>.net core; logging; http;</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
