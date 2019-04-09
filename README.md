@@ -28,7 +28,7 @@ Add the following configuration section to your **appsettings.json**:
 			"Url": "urlToLogService",
 			"CertificatePath": "pathToPrivateCertificate",
 			"CertificatePassword": "certPassword",
-			"LogFromScopeMapings": true, // if true log only properties from "ScopeMappings" if are present in logs
+			"UseScopeMappings": true, // if true log only properties from "ScopeMappings" if are present in logs
 			"ScopeMappings": {
 				"Test": "test"
 			}
@@ -37,7 +37,7 @@ Add the following configuration section to your **appsettings.json**:
 			"Url": "urlToLogService",
 			"Username": "",
 			"Password": "",
-			"LogFromScopeMapings": false, // if false log all properties
+			"UseScopeMappings": false, // if false log all properties
 			"ScopeMappings": {
 				"Test": "test"
 			}
@@ -64,7 +64,7 @@ public void ConfigureServices(IServiceCollection services)
                    .AddHttp(() =>
 
                    {
-                       var authwithAuthHeaderOptions = new HttpOptions { ErrorLogger = mlogErrorLogger };
+                       var authwithAuthHeaderOptions = new HttpOptions();
                        Configuration.Bind("Logging:HttpWithBasicAuth", authwithAuthHeaderOptions);
                        return authwithAuthHeaderOptions;
                    }));
