@@ -23,7 +23,7 @@ namespace Age.Extensions.Logging.Http
 
         public string CertificatePassword { get; set; }
 
-        public bool LogFromScopeMapings { get; set; }
+        public bool UseScopeMappings { get; set; }
 
         public Dictionary<string, string> ScopeMappings { get; set; }
 

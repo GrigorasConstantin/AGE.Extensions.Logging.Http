@@ -33,7 +33,16 @@ namespace Age.Extensions.Logging.Http
                 return;
             }
             else
-            {
+            {                 
+                if (formatter != null && !scopeDictionary.ContainsKey("Message"))
+                {
+                    scopeDictionary.Add("Message", formatter(state, exception));
+                }
+
+                if (exception != null && !scopeDictionary.ContainsKey("Exception"))
+                {
+                    scopeDictionary.Add("Exception", exception.ToString());
+                }
                 messageProcessor.EnqueueMessage(scopeDictionary.ToJson());
                 return;
             }
@@ -55,7 +64,7 @@ namespace Age.Extensions.Logging.Http
             {
                 if (state is IReadOnlyCollection<KeyValuePair<string, object>> stateDictionary)
                 {
-                    if (options.LogFromScopeMapings)
+                    if (options.UseScopeMappings)
                     {
                         dict.ParseCollection(stateDictionary, options.ScopeMappings);
                     }
@@ -76,7 +85,7 @@ namespace Age.Extensions.Logging.Http
                     {
                         if (activeScope is IReadOnlyCollection<KeyValuePair<string, object>> activeScopeDictionary)
                         {
-                            if (options.LogFromScopeMapings)
+                            if (options.UseScopeMappings)
                             {
                                 dict.ParseCollection(activeScopeDictionary, options.ScopeMappings);
                             }

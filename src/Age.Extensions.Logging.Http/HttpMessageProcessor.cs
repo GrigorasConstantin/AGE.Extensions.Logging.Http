@@ -20,7 +20,7 @@ namespace Age.Extensions.Logging.Http
             processorThread = new Thread(StartAsync)
             {
                 IsBackground = true,
-                Name = "MLog logger queue processing thread"
+                Name = "Http logger queue processing thread"
             };
             processorThread.Start();
         }
@@ -43,7 +43,7 @@ namespace Age.Extensions.Logging.Http
                 }
                 catch (Exception ex)
                 {
-                    errorLogger?.LogCritical(ex, "Error on sending logs to MLog");
+                    errorLogger?.LogCritical(ex, "Error on sending logs to Http");
                 }
             }           
         }

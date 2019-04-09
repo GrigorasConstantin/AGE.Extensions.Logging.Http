@@ -17,7 +17,7 @@ namespace Test.Controllers
         {
             using (logger.BeginScope("{event_type}{service}{event_time}", "Signature.Success", "testService", DateTime.UtcNow))
             {
-                logger.LogError("Logging with scope => {Test}", "scope");
+                logger.LogError(new Exception(),"Logging with scope => {Test}", "scope");
             }
 
             logger.LogError("Took place an error with event type: {event_type} with data: {test}", "ERROR", "test");

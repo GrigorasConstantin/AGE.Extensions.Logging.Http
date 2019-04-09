@@ -44,7 +44,7 @@ namespace Test
                    })
                    .AddHttp(() =>
                    {
-                       var authwithAuthHeaderOptions = new HttpOptions { ErrorLogger = mlogErrorLogger };
+                       var authwithAuthHeaderOptions = new HttpOptions();
                        Configuration.Bind("Logging:HttpMopsConfig", authwithAuthHeaderOptions);
                        return authwithAuthHeaderOptions;
                    }));
